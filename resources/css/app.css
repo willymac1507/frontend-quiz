@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  @variants responsive {
+    .text-nav-sm {
+      font-size: 18px;
+      line-height: 18px;
+    }
+    .text-nav-md {
+      font-size: 28px;
+      line-height: 28px;
+    }
+    .text-nav-lg {
+      font-size: 28px;
+      line-height: 28px;
+    }
+
+    .text-title-sm {
+      font-size: 40px;
+      line-height: 40px;
+    }
+    .text-title-md {
+      font-size: 40px;
+      line-height: 40px;
+    }
+    .text-title-lg {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    .text-subtitle-sm {
+      font-size: 14px;
+      line-height: 21px;
+    }
+    .text-subtitle-md {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    .text-subtitle-lg {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    .text-question-sm {
+      font-size: 20px;
+      line-height: 24px;
+    }
+    .text-question-md {
+      font-size: 36px;
+      line-height: 43px;
+    }
+    .text-question-lg {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    .text-answer-sm {
+      font-size: 18px;
+      line-height: 18px;
+    }
+    .text-answer-md {
+      font-size: 28px;
+      line-height: 28px;
+    }
+    .text-answer-lg {
+      font-size: 40px;
+      line-height: 40px;
+    }
+  }
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f4f6fa;
+  background-image: url("/public/images/pattern-background-mobile-light.svg");
+  background-size: cover;
+}
+
+.answer-container label {
+  @apply border-transparent;
+}
+
+.answer-container input[type=radio]:checked + label {
+  @apply border-accent-purple;
+}
+
+.main-container {
+  @apply flex flex-col mt-10 text-brand-darkest;
+}
+
+.answer-container {
+  @apply mt-10 sm:mt-16 flex flex-col gap-[12px];
+}
+
+[class^=rubik] {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.rubik-light {
+  font-weight: 300;
+  font-style: normal;
+}
+
+.rubik-light-italic {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.rubik-normal {
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rubik-normal-italic {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.rubik-medium {
+  font-weight: 500;
+  font-style: normal;
+}
+
+.rubik-medium-italic {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.rubik-semi {
+  font-weight: 600;
+  font-style: normal;
+}
+
+.rubik-semi-italic {
+  font-weight: 600;
+  font-style: italic;
+}
+
+.rubik-bold {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.rubik-bold-italic {
+  font-weight: 700;
+  font-style: italic;
+}
+
+.rubik-extra {
+  font-weight: 800;
+  font-style: normal;
+}
+
+.rubik-extra-italic {
+  font-weight: 800;
+  font-style: italic;
+}
+
+.rubik-black {
+  font-weight: 900;
+  font-style: normal;
+}
+
+.rubik-black-italic {
+  font-weight: 900;
+  font-style: italic;
+}
+
+/*# sourceMappingURL=app.css.map */
