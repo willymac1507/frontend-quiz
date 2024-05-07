@@ -7,7 +7,7 @@
                 <div
                     :class="[checked ? 'border-accent-purple ring-2 ring-accent-purple' : 'border-transparent', 'border relative block cursor-pointer rounded-lg sm:rounded-3xl bg-white px-2 py-2 shadow-sm focus:outline-none sm:flex sm:justify-between']">
                   <span class="flex items-center">
-                    <span class="flex text-sm items-center gap-4">
+                    <span class="flex text-sm items-center gap-4 sm:gap-8">
                       <RadioGroupLabel :class="[checked ? 'text-white bg-accent-purple' : 'text-brand-darkest bg-brand-lighter', 'text-answer-sm sm:text-answer-md flex items-center justify-center w-10 sm:w-14 h-10 sm:h-14 rounded-lg sm:rounded-2xl font-medium']" as="span">{{
                               answer.name
                           }}</RadioGroupLabel>
