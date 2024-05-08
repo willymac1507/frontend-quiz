@@ -23,19 +23,33 @@
     </RadioGroup>
 </template>
 <script setup>
-import {ref} from 'vue'
+import {inject, ref} from 'vue'
 import {RadioGroup, RadioGroupDescription, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue'
+import {router} from "@inertiajs/vue3";
+
+const props = defineProps([
+    'options'
+])
+
+let questionNumber = inject('number');
+let totalQuestions = inject('totalQuestions');
+let subject = inject('subject');
 
 const answers = [
-    {name: 'A', answer: '4.5 : 1'},
-    {name: 'B', answer: '3 : 1'},
-    {name: 'C', answer: '2.5 : 1'},
-    {name: 'D', answer: '5 : 1'},
+    {name: 'A', answer: props.options[0]},
+    {name: 'B', answer: props.options[1]},
+    {name: 'C', answer: props.options[2]},
+    {name: 'D', answer: props.options[3]},
 ]
 
-const selected = ref(null)
+const selected = ref(null);
 
 function checkAnswer() {
-
+    let nextQuestion = questionNumber + 1;
+    if (nextQuestion > totalQuestions) {
+        router.get('/');
+    } else {
+        router.get('/question/' + subject + '/' + nextQuestion)
+    }
 }
 </script>

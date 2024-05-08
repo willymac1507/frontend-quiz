@@ -8,4 +8,4 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 
-Route::get('/question/{subject}', [QuestionController::class, 'show']);
+Route::get('/question/{subject}/{number}', [QuestionController::class, 'show']);
