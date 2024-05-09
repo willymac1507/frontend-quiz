@@ -8,48 +8,65 @@
                     :class="[checked ? 'border-accent-purple ring-2 ring-accent-purple' : 'border-transparent', 'border relative block cursor-pointer rounded-lg sm:rounded-3xl bg-white px-2 py-2 shadow-sm focus:outline-none sm:flex sm:justify-between']">
                   <span class="flex items-center">
                     <span class="flex text-sm items-center gap-4 sm:gap-8">
-                      <RadioGroupLabel :class="[checked ? 'text-white bg-accent-purple' : 'text-brand-darkest bg-brand-lighter', 'text-answer-sm sm:text-answer-md flex items-center justify-center w-10 sm:w-14 h-10 sm:h-14 rounded-lg sm:rounded-2xl font-medium']" as="span">{{
+                      <RadioGroupLabel
+                          :class="[checked ? 'text-white bg-accent-purple' : 'text-brand-darkest bg-brand-lighter', 'text-answer-sm sm:text-answer-md flex items-center justify-center w-10 sm:w-14 h-10 sm:h-14 rounded-lg sm:rounded-2xl font-medium']"
+                          as="span">{{
                               answer.name
                           }}</RadioGroupLabel>
-                      <RadioGroupDescription as="span" class="text-answer-sm sm:text-answer-md font-medium text-brand-darkest">
+                      <RadioGroupDescription
+                          as="span" class="text-answer-sm sm:text-answer-md font-medium text-brand-darkest">
                         <span class="block sm:inline">{{ answer.answer }}</span>
                       </RadioGroupDescription>
                     </span>
                   </span>
                 </div>
             </RadioGroupOption>
-            <div v-show="selected" :class="['text-answer-sm sm:text-answer-md text-white h-14 sm:h-[92px] flex items-center justify-center bg-accent-purple border relative block cursor-pointer rounded-lg sm:rounded-3xl px-2 py-2 shadow-sm focus:outline-none']" role="button" @click="checkAnswer()"> Submit Answer</div>
+            <div
+                v-show="selected"
+                :class="['text-answer-sm sm:text-answer-md text-white h-14 sm:h-[92px] flex items-center justify-center bg-accent-purple border relative cursor-pointer rounded-lg sm:rounded-3xl px-2 py-2 shadow-sm focus:outline-none']"
+                role="button" @click="checkAnswer()"> Submit Answer
+            </div>
         </div>
     </RadioGroup>
 </template>
 <script setup>
-import {inject, ref} from 'vue'
+import {computed, inject, ref} from 'vue'
 import {RadioGroup, RadioGroupDescription, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue'
-import {router} from "@inertiajs/vue3";
 
 const props = defineProps([
     'options'
+])
+
+const selectedAnswer = defineModel();
+
+const emit = defineEmits([
+    'check-answer'
 ])
 
 let questionNumber = inject('number');
 let totalQuestions = inject('totalQuestions');
 let subject = inject('subject');
 
-const answers = [
-    {name: 'A', answer: props.options[0]},
-    {name: 'B', answer: props.options[1]},
-    {name: 'C', answer: props.options[2]},
-    {name: 'D', answer: props.options[3]},
-]
+const options = computed(() => {
+    return props.options;
+})
 
-const selected = ref(null);
+const answers = computed(() => {
+    return [
+        {name: 'A', answer: options.value[0]},
+        {name: 'B', answer: options.value[1]},
+        {name: 'C', answer: options.value[2]},
+        {name: 'D', answer: options.value[3]},
+    ];
+});
+
+let selected = ref(null);
 
 function checkAnswer() {
-    let nextQuestion = questionNumber + 1;
-    if (nextQuestion > totalQuestions) {
-        router.get('/');
-    } else {
-        router.get('/question/' + subject + '/' + nextQuestion)
-    }
+    selectedAnswer.value = selected.value;
+    emit('update:modelValue');
+    emit('check-answer', selected.value['answer']);
+    selected = ref(null);
+
 }
 </script>

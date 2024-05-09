@@ -1,13 +1,24 @@
 <script setup>
 import AnswerButtons from "../Shared/AnswerButtons.vue";
-import {inject} from "vue";
+import {inject, ref} from "vue";
 
 const props = defineProps([
     'question'
 ])
 
-let questionNumber = inject('number');
+const emit = defineEmits(['next-question']);
+const answerSelected = ref(null);
+
+let questionNumber = ref(inject('number'));
 const totalQuestions = inject('totalQuestions');
+
+function checkAnswer(answer) {
+    if (answer === props.question['answer']) {
+        emit('next-question', true);
+    } else {
+        emit('next-question', true);
+    }
+}
 
 </script>
 
@@ -21,6 +32,10 @@ const totalQuestions = inject('totalQuestions');
         </div>
     </div>
     <div class="answer-container lg:basis-2/5">
-        <AnswerButtons :options="question.options" />
+        <AnswerButtons
+            :options="question.options"
+            @v-model="answerSelected"
+            @check-answer="checkAnswer"
+        />
     </div>
 </template>
