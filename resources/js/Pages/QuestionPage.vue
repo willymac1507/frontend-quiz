@@ -2,8 +2,9 @@
 import Navbar from "../Shared/Navbar.vue";
 import IconSet from "../Shared/IconSet.vue";
 import {computed, onMounted, onUpdated, provide, ref} from "vue";
-import Question from "./Question.vue";
 import {router} from "@inertiajs/vue3";
+import Sandbox from "./Sandbox.vue";
+import {store} from "../store.js";
 
 const props = defineProps([
     'subject',
@@ -22,14 +23,13 @@ provide('subject', props.subject);
 provide('totalQuestions', totalQuestions);
 
 function progress() {
-    console.log(width.value);
     let bar = document.getElementById('innerBar');
     bar.style.width = width.value + '%';
 }
 
 function nextQuestion(score) {
     if (score) {
-        totalScore.value ++;
+        store.addScore();
     }
     if (questionNumber.value < totalQuestions) {
         questionNumber.value = questionNumber.value + 1;
@@ -56,6 +56,7 @@ onUpdated(() => {
         </template>
     </Navbar>
     <div class="main-container">
-        <Question :question="props.questions[questionNumber - 1]" @next-question="nextQuestion" />
+<!--        <Question :question="props.questions[questionNumber - 1]" @next-question="nextQuestion" />-->
+        <Sandbox :question="props.questions[questionNumber -1]" :questionNumber="questionNumber" :totalQuestions="totalQuestions" @next-question="nextQuestion()"></Sandbox>
     </div>
 </template>

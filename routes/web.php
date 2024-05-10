@@ -11,3 +11,7 @@ Route::get('/', function () {
 Route::post('/results', [QuestionController::class, 'results']);
 
 Route::get('/question/{subject}', [QuestionController::class, 'show']);
+
+Route::get('/sandbox', function () {
+    return Inertia::render('Sandbox');
+});

@@ -9,86 +9,104 @@
                 font-size: 18px;
                 line-height: 18px;
             }
+
             &-md {
                 font-size: 28px;
                 line-height: 28px;
             }
+
             &-lg {
                 font-size: 28px;
                 line-height: 28px;
             }
         }
+
         .text-title {
             &-sm {
                 font-size: 40px;
                 line-height: 40px;
             }
+
             &-md {
                 font-size: 64px;
                 line-height: 64px;
             }
+
             &-lg {
                 font-size: 40px;
                 line-height: 40px;
             }
         }
+
         .text-subtitle {
             &-sm {
                 font-size: 14px;
                 line-height: 21px;
             }
+
             &-md {
                 font-size: 20px;
                 line-height: 30px;
             }
+
             &-lg {
                 font-size: 40px;
                 line-height: 40px;
             }
         }
+
         .text-question {
             &-sm {
                 font-size: 20px;
                 line-height: 24px;
             }
+
             &-md {
                 font-size: 36px;
                 line-height: 43px;
             }
+
             &-lg {
                 font-size: 40px;
                 line-height: 40px;
             }
         }
+
         .text-answer {
             &-sm {
                 font-size: 18px;
                 line-height: 18px;
             }
+
             &-md {
                 font-size: 28px;
                 line-height: 28px;
             }
+
             &-lg {
                 font-size: 40px;
                 line-height: 40px;
             }
         }
+
         .text-score {
             &-sm {
                 font-size: 88px;
                 line-height: 88px;
             }
+
             &-md {
                 font-size: 144px;
                 line-height: 144px;
             }
         }
+
         .text-result {
             &-sm {
                 font-size: 18px;
                 line-height: 18px;
             }
+
             &-md {
                 font-size: 24px;
                 line-height: 24px;
@@ -105,12 +123,44 @@ body {
     background-size: cover;
 }
 
-.answer-container label {
-    @apply border-transparent
+.selected {
+    & > label {
+        @apply border-accent-purple
+    }
+
+    & .question-icon {
+        @apply text-white bg-accent-purple
+    }
+
+    &-correct {
+        & > label {
+            @apply border-green-400
+        }
+
+        & .question-icon {
+            @apply text-white bg-green-400
+        }
+    }
+
+    &-incorrect {
+        & > label {
+            @apply border-red-400
+        }
+
+        & .question-icon {
+            @apply text-white bg-red-400
+        }
+    }
 }
 
-.answer-container input[type="radio"]:checked + label {
-    @apply border-accent-purple
+.unselected {
+    & > label {
+        @apply border-transparent
+    }
+
+    & .question-icon {
+        @apply bg-brand-lighter
+    }
 }
 
 .main-container {

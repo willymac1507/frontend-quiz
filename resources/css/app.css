@@ -95,12 +95,30 @@ body {
   background-size: cover;
 }
 
-.answer-container label {
-  @apply border-transparent;
+.selected > label {
+  @apply border-accent-purple;
+}
+.selected .question-icon {
+  @apply text-white bg-accent-purple;
+}
+.selected-correct > label {
+  @apply border-green-400;
+}
+.selected-correct .question-icon {
+  @apply text-white bg-green-400;
+}
+.selected-incorrect > label {
+  @apply border-red-400;
+}
+.selected-incorrect .question-icon {
+  @apply text-white bg-red-400;
 }
 
-.answer-container input[type=radio]:checked + label {
-  @apply border-accent-purple;
+.unselected > label {
+  @apply border-transparent;
+}
+.unselected .question-icon {
+  @apply bg-brand-lighter;
 }
 
 .main-container {
