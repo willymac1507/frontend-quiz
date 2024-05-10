@@ -34,7 +34,7 @@ function nextQuestion(score) {
     if (questionNumber.value < totalQuestions) {
         questionNumber.value = questionNumber.value + 1;
     } else {
-        router.post('/results', {score: totalScore.value}, {forceFormData: true});
+        router.post('/results', {score: totalScore.value, subject: props.subject, questions: totalQuestions}, {forceFormData: true});
     }
 
 }

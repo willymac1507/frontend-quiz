@@ -29,7 +29,9 @@ class QuestionController extends Controller
     {
 
         return Inertia::render('Results', [
-            'score' => $request
+            'score' => $request['score'],
+            'subject' => $request['subject'],
+            'questions' => $request['questions']
         ]);
     }
 }

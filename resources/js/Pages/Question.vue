@@ -16,7 +16,7 @@ function checkAnswer(answer) {
     if (answer === props.question['answer']) {
         emit('next-question', true);
     } else {
-        emit('next-question', true);
+        emit('next-question', false);
     }
 }
 
