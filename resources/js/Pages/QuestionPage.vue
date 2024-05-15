@@ -3,15 +3,13 @@ import Navbar from "../Shared/Navbar.vue";
 import IconSet from "../Shared/IconSet.vue";
 import {computed, onMounted, onUpdated, provide, ref} from "vue";
 import {router} from "@inertiajs/vue3";
-import Sandbox from "./Sandbox.vue";
 import {store} from "../store.js";
+import Question from "./Question.vue";
 
 const props = defineProps([
     'subject',
     'questions'
 ]);
-
-let totalScore = ref(0);
 
 const totalQuestions = props.questions.length;
 let questionNumber = ref(1);
@@ -34,13 +32,14 @@ function nextQuestion(score) {
     if (questionNumber.value < totalQuestions) {
         questionNumber.value = questionNumber.value + 1;
     } else {
-        router.post('/results', {score: totalScore.value, subject: props.subject, questions: totalQuestions}, {forceFormData: true});
+        router.post('/results', {score: store.totalScore, subject: props.subject, questions: totalQuestions}, {forceFormData: true});
     }
 
 }
 
 onMounted(() => {
     progress();
+    store.resetScore();
 });
 
 onUpdated(() => {
@@ -57,6 +56,6 @@ onUpdated(() => {
     </Navbar>
     <div class="main-container">
 <!--        <Question :question="props.questions[questionNumber - 1]" @next-question="nextQuestion" />-->
-        <Sandbox :question="props.questions[questionNumber -1]" :questionNumber="questionNumber" :totalQuestions="totalQuestions" @next-question="nextQuestion()"></Sandbox>
+        <Question :question="props.questions[questionNumber -1]" :questionNumber="questionNumber" :totalQuestions="totalQuestions" @next-question="nextQuestion"></Question>
     </div>
 </template>
