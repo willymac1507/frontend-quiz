@@ -55,7 +55,6 @@ onUpdated(() => {
         </template>
     </Navbar>
     <div class="main-container">
-<!--        <Question :question="props.questions[questionNumber - 1]" @next-question="nextQuestion" />-->
         <Question :question="props.questions[questionNumber -1]" :questionNumber="questionNumber" :totalQuestions="totalQuestions" @next-question="nextQuestion"></Question>
     </div>
 </template>

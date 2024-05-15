@@ -14,5 +14,10 @@ let enabled = ref(false)
 
 function toggle() {
     enabled = !enabled
+    if (enabled) {
+        document.documentElement.classList.add('dark')
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
 }
 </script>

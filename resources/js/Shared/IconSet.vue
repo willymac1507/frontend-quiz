@@ -40,7 +40,7 @@ const iconTitle = computed(() => {
 })
 </script>
 <template>
-    <div class="mr-auto flex justify-start items-center text-nav-sm sm:text-nav-md">
+    <div class="mr-auto flex justify-start items-center text-nav-sm sm:text-nav-md dark:text-white">
         <SubjectIcon :class=iconClass :icon=iconImage></SubjectIcon>
         {{ iconTitle }}
     </div>

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    darkMode: 'selector',
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/**/*.js",
@@ -10,6 +11,10 @@ module.exports = {
             sans: ['Rubik', 'sans-serif']
         },
         extend: {
+            backgroundImage: {
+                'mobile-light': "url('../images/pattern-background-mobile-light.svg')",
+                'mobile-dark': "url('../images/pattern-background-mobile-dark.svg')",
+            },
             colors: {
                 accent: {
                     purple: '#a729f5',

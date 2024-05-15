@@ -21,18 +21,18 @@ function playAgain() {
         </template>
     </Navbar>
     <div class="main-container">
-        <div class="lg:basis-2/5">
+        <div class="lg:basis-2/5 dark:text-white">
             <h2 class="text-title-sm sm:text-title-md font-light mb-2">Quiz completed</h2>
             <h1 class="text-title-sm sm:text-title-md font-medium lg:mb-10">You scored ...</h1>
         </div>
         <div class="lg:basis-2/5 answer-container">
-            <div class="lg:mt-0 w-full rounded-xl sm:rounded-3xl bg-white mt-10 sm:mt-14 mb-3 sm:mb-6 p-8 flex flex-col items-center mx-auto">
+            <div class="lg:mt-0 w-full rounded-xl sm:rounded-3xl bg-white dark:bg-brand-darker mt-10 sm:mt-14 mb-3 sm:mb-6 p-8 flex flex-col items-center mx-auto">
                 <IconSet :subject="props.subject" class="mx-auto justify-center"/>
-                <p class="text-score-sm sm:text-score-md mt-4 mb-4 font-medium">{{props.score}}</p>
-                <p class="text-result-sm sm:text-result-md text-brand-dark">out of {{ props.questions }}</p>
+                <p class="text-score-sm sm:text-score-md mt-4 mb-4 font-medium dark:text-white">{{props.score}}</p>
+                <p class="text-result-sm sm:text-result-md text-brand-dark dark:text-brand-light">out of {{ props.questions }}</p>
             </div>
             <div
-                :class="['text-answer-sm sm:text-answer-md text-white h-14 sm:h-[92px] flex items-center justify-center bg-accent-purple border relative cursor-pointer rounded-lg sm:rounded-3xl px-2 py-2 shadow-sm focus:outline-none']"
+                :class="['text-answer-sm sm:text-answer-md text-white h-14 sm:h-[92px] flex items-center justify-center bg-accent-purple relative cursor-pointer rounded-lg sm:rounded-3xl px-2 py-2 shadow-sm focus:outline-none']"
                 role="button" @click="playAgain()"> Play Again
             </div>
         </div>

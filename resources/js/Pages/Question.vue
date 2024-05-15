@@ -49,10 +49,10 @@ function checkAnswer() {
 }
 </script>
 <template>
-    <p class="text-subtitle-sm sm:text-subtitle-md italic font-light text-brand-dark mt-4">Question
+    <p class="text-subtitle-sm sm:text-subtitle-md italic font-light text-brand-dark dark:text-brand-light mt-4">Question
         {{ questionNumber }} of {{ totalQuestions }}</p>
-    <p class="text-question-sm sm:text-question-md font-medium mt-3 sm:mt-7 mb-6 sm:mb-10">{{ question.question }}</p>
-    <div class="progress-bar bg-white rounded-lg h-4 px-1 w-full flex justify-start items-center">
+    <p class="text-question-sm sm:text-question-md font-medium mt-3 sm:mt-7 mb-6 sm:mb-10 dark:text-white">{{ question.question }}</p>
+    <div class="progress-bar bg-white dark:bg-brand-darker rounded-lg h-4 px-1 w-full flex justify-start items-center">
         <div id="innerBar" class="bg-accent-purple h-2 rounded"></div>
     </div>
     <div class="answer-container lg:basis-2/5">
@@ -67,10 +67,10 @@ function checkAnswer() {
             ]">
                 <label
                     :for="entry.letter"
-                    class="border-2 p-4 w-full rounded-lg bg-white h-16 flex justify-between items-center mb-4"
+                    class="border-2 p-4 w-full rounded-lg bg-white h-16 flex justify-between items-center mb-4 dark:bg-brand-darker dark:text-white"
                     role="button">
                 <span
-                    class="question-icon w-12 h-12 flex items-center justify-center rounded-lg mr-4"
+                    class="question-icon w-12 h-12 flex items-center justify-center rounded-lg mr-4 dark:text-brand-dark"
                 >{{ entry.letter }}</span>
                     <span class="mr-auto">{{ entry.option }}</span>
                     <input

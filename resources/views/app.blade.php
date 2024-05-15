@@ -11,7 +11,7 @@
     @vite('resources/css/app.css')
     @inertiaHead
 </head>
-<body class="px-6 sm:px-16 py-4 sm:py-10 lg:px-[140px] lg:py-[83px]">
+<body class="bg-mobile-light dark:bg-mobile-dark bg-brand-lighter dark:bg-brand-darkest px-6 sm:px-16 py-4 sm:py-10 lg:px-[140px] lg:py-[83px]">
 @inertia
 </body>
 </html>
